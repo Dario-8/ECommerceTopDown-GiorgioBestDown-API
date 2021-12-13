@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 namespace ECommerceTopDown_GiorgioBestDown_API.Controllers
@@ -21,5 +22,21 @@ namespace ECommerceTopDown_GiorgioBestDown_API.Controllers
             var order = await _service.Get();
             return Ok(order);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody]InsertOrderRequest request)
+        {
+
+            var PostOrderResponse =  _service.Post(request);
+            return await CreatedAtAction(
+                nameof(GetOne),
+                new { Id = request.Id },
+                request);
+        }
+    }
+
+    private object GetOne()
+    {
+        throw new NotImplementedException();
     }
 }

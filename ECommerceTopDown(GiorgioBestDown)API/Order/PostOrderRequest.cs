@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-
-namespace ECommerceTopDown_GiorgioBestDown_API.Controllers
+﻿namespace ECommerceTopDown_GiorgioBestDown_API.Controllers
 {
-    public class Order
+    public class PostOrderRequest
     {
         public int Id { get; set; }
         public string Status { get; set; }
